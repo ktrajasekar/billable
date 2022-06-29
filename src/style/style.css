@@ -1,0 +1,38 @@
+/* Invoice Styles */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+
+:root {
+  --black: #000;
+  --bold-font: 700;
+  --highLightColor: #f5f5f5;
+  --borderColor: #ddd;
+}
+
+* {
+  outline: none;
+}
+h1,
+h2 {
+  margin: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.invoice-page h1 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 10px;
+  border-top: var(--borderColor) 2px solid;
+  padding: 5px 0;
+  font-weight: var(--bold-font);
+  border-bottom: var(--borderColor) 2px solid;
+}
+.focus-editor {
+  padding: 10px;
+}
+.focus-editor:focus {
+  background-color: var(--highLightColor);
+}
