@@ -11,13 +11,19 @@
 * {
   outline: none;
 }
+
 h1,
 h2 {
   margin: 0;
 }
 
 body {
+  background-color: #f5f5f5;
   font-family: "Montserrat", sans-serif !important;
+}
+.generate-invoice .container {
+  background-color: #fff;
+  padding: 0;
 }
 
 .invoice-page h1 {
@@ -31,8 +37,21 @@ body {
   border-bottom: var(--borderColor) 2px solid;
 }
 .focus-editor {
-  padding: 10px;
+  padding: 5px;
 }
 .focus-editor:focus {
   background-color: var(--highLightColor);
+}
+.company-profile,
+.address-information {
+  margin-bottom: 20px;
+}
+.invoice-details {
+  display: grid;
+  max-width: 250px;
+  grid-template-columns: auto auto;
+}
+
+.invoice-details div {
+border:var(--borderColor) 1px solid;
 }
