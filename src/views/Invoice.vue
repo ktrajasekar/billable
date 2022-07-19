@@ -32,9 +32,9 @@
               <div class="col-sm-4">
                 <div class="invoice-details">
                   <div>Invoice No#</div>
-                  <div class="focus-editor" contenteditable>2</div>
+                  <div class="focus-editor" contenteditable>1</div>
                   <div>Date</div>
-                  <div class="focus-editor" contenteditable>2</div>
+                  <div class="focus-editor" contenteditable>{{currentDate()}}</div>
                 </div>
               </div>
             </div>
@@ -44,33 +44,29 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="view">
-                  <table>
-                    <thead>
-                      <th>
-                        <tr>
-                          <td>#</td>
-                          <td>Items</td>
-                          <td>Quantity</td>
-                          <td>Amount</td>
-                          <td>Total</td>
-                          <td>Action</td>
-                        </tr>
-                      </th>
+                  <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <td scope="col" width="5%">#</td>
+                        <td scope="col" colspan="3" width="50%">Description</td>
+                        <td scope="col" width="15%">Quantity</td>
+                        <td scope="col" width="15%">Price</td>
+                      </tr>
                     </thead>
                     <tbody v-if="items.length > 0">
                       <tr v-for="(item, index) in items" :key="index">
-                        <td>{{ index + 1 }}</td>
-                        <td>
+                        <td scope="row" width="5%">{{ index + 1 }}</td>
+                        <td colspan="3" scope="row" width="50%">
                           <input type="text" v-model="item.name" />
                         </td>
-                        <td>
-                          <input type="number" v-model="item.quantity" />
+                        <td scope="row" width="15%">
+                          <input type="text" v-model="item.quantity" />
                         </td>
-                        <td>
-                          <input type="number" v-model="item.amount" />
+
+                        <td scope="row" width="15%">
+                          <input type="text" v-model="item.amount" />
                         </td>
-                        <td><input type="number" v-model="item.total" /></td>
-                        <td>
+                        <td width="15%">
                           <button type="button" @click="removeItem">
                             Remove
                           </button>
@@ -87,6 +83,22 @@
               </div>
             </div>
           </section>
+          <!-- Company Profile  End-->
+          <section class="address-information">
+            <div class="row">
+              <div class="col-sm-8"></div>
+              <div class="col-sm-4">
+                <div class="invoice-details">
+                  <div>Subtotal</div>
+                  <div class="focus-editor" >{{subTotal.toFixed(2)}}</div>
+                  <div>VAT 5%</div>
+                  <div class="focus-editor" >{{percentage}}</div>
+                  <div>Total</div>
+                  <div class="focus-editor" >{{Number(subTotal + percentage).toFixed(2) }}</div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -96,10 +108,12 @@
 export default {
   data() {
     return {
+      subTotal: 0,
+      percentage: 0,
       items: [
         {
           name: "",
-          quantity: 0,
+          quantity: 1,
           amount: 0,
           total: 0,
         },
@@ -112,15 +126,31 @@ export default {
         newValue.forEach((item) => {
           item.total = item.quantity * item.amount;
         });
+        this.subTotal = this.items.reduce((prev, curr) => Number(prev) + Number(curr.total),0);
       },
       deep: true,
     },
+    subTotal : {
+      handler(val) {
+        this.percentage = Number(((5 / 100) * val).toFixed(2))
+      }
+    }
+  },
+  computed: {
+
   },
   methods: {
+    currentDate() {
+      const current = new Date();
+      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const date = current.getDate()+'-'+(months[current.getMonth()])+'-'+current.getFullYear();
+      const dateTime = date 
+      return dateTime;
+    },
     AddItem() {
       this.items.push({
         name: "",
-        quantity: 0,
+        quantity: 1,
         amount: 0,
         total: 0,
       });
@@ -128,6 +158,11 @@ export default {
     removeItem() {
       this.items.splice(this.items, 1);
     },
+    calculateSubTotal() {
+      this.items.reduce((item)=> {
+        console.log("-----", item)
+      })
+    }
   },
 };
 </script>
