@@ -29,8 +29,8 @@
                   <p>Address</p>
                 </div>
               </div>
-              <div class="col-sm-4">
-                <div class="invoice-details">
+              <div class="col-sm-4 ">
+                <div class="invoice-details float-end">
                   <div>Invoice No#</div>
                   <div class="focus-editor" contenteditable>1</div>
                   <div>Date</div>
@@ -51,7 +51,7 @@
                         <td scope="col" colspan="3" width="50%">Description</td>
                         <td scope="col" width="15%">Quantity</td>
                         <td scope="col" width="15%">Price</td>
-                          <td scope="col" width="5%"></td>
+                          <td scope="col" width="5%" class="d-print-none"></td>
                       </tr>
                     </thead>
                     <tbody v-if="items.length > 0">
@@ -67,7 +67,7 @@
                         <td scope="row" width="15%">
                           <input type="text" v-model="item.amount" class="focus-editor" />
                         </td>
-                        <td width="5%">
+                        <td width="5%" class="d-print-none">
                           <div class="remove align-middle" type="button" @click="removeItem">
                             
                           </div>
@@ -75,7 +75,7 @@
                       </tr>
                     </tbody>
                   </table>
-                  <div class="btn">
+                  <div class="btn d-print-none">
                     <button type="button" class="newItem" @click="AddItem">
                       Add new row
                     </button>
@@ -88,8 +88,8 @@
           <section class="address-information">
             <div class="row">
               <div class="col-sm-8"></div>
-              <div class="col-sm-4">
-                <div class="invoice-details">
+              <div class="col-sm-4 ">
+                <div class="invoice-details float-end">
                   <div>Subtotal</div>
                   <div class="focus-editor" >{{subTotal.toFixed(2)}}</div>
                   <div>VAT 5%</div>
