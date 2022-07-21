@@ -44,32 +44,33 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="view">
-                  <table class="table">
+                  <table class="table align-middle table-bordered">
                     <thead class="thead-light">
-                      <tr>
+                      <tr class="invoice-border-th">
                         <td scope="col" width="5%">#</td>
                         <td scope="col" colspan="3" width="50%">Description</td>
                         <td scope="col" width="15%">Quantity</td>
                         <td scope="col" width="15%">Price</td>
+                          <td scope="col" width="5%"></td>
                       </tr>
                     </thead>
                     <tbody v-if="items.length > 0">
                       <tr v-for="(item, index) in items" :key="index">
                         <td scope="row" width="5%">{{ index + 1 }}</td>
                         <td colspan="3" scope="row" width="50%">
-                          <input type="text" v-model="item.name" />
+                          <input type="text" v-model="item.name" class="focus-editor desc-txt" />
                         </td>
-                        <td scope="row" width="15%">
-                          <input type="text" v-model="item.quantity" />
+                        <td scope="row" width="20%">
+                          <input type="text" v-model="item.quantity" class="focus-editor" />
                         </td>
 
                         <td scope="row" width="15%">
-                          <input type="text" v-model="item.amount" />
+                          <input type="text" v-model="item.amount" class="focus-editor" />
                         </td>
-                        <td width="15%">
-                          <button type="button" @click="removeItem">
-                            Remove
-                          </button>
+                        <td width="5%">
+                          <div class="remove align-middle" type="button" @click="removeItem">
+                            
+                          </div>
                         </td>
                       </tr>
                     </tbody>

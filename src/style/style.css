@@ -6,6 +6,7 @@
   --bold-font: 700;
   --highLightColor: #f5f5f5;
   --borderColor: #ddd;
+  --table-head-bg:#efefef;
 }
 
 * {
@@ -54,4 +55,34 @@ body {
 
 .invoice-details div {
 border:var(--borderColor) 1px solid;
+}
+
+.generate-invoice input {
+  border: 0;
+}
+
+.remove {
+  background: url(/images/remove-icon.svg) no-repeat;
+  height: 30px;
+  width: 40px;
+  float: right;
+  display: grid;
+  align-self: middle;
+}
+
+.invoice-border-th {
+  background-color: var(--table-head-bg);
+}
+.table>:not(:first-child) {
+  border-top: 2px;
+}
+.desc-txt {
+  width: 100%;
+}
+
+
+@media (min-width:1025px) {
+   .generate-invoice .container {
+    padding: 15px;
+   }
 }
