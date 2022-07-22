@@ -1,23 +1,19 @@
 /* Invoice Styles */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
-
 :root {
   --black: #000;
   --bold-font: 700;
   --highLightColor: #f5f5f5;
   --borderColor: #ddd;
-  --table-head-bg:#efefef;
+  --table-head-bg: #efefef;
 }
-
 * {
   outline: none;
 }
-
 h1,
 h2 {
   margin: 0;
 }
-
 body {
   background-color: #f5f5f5;
   font-family: "Montserrat", sans-serif !important;
@@ -26,7 +22,6 @@ body {
   background-color: #fff;
   padding: 0;
 }
-
 .invoice-page h1 {
   font-size: 1.8rem;
   letter-spacing: 1px;
@@ -52,15 +47,12 @@ body {
   min-width: 250px;
   grid-template-columns: auto auto;
 }
-
 .invoice-details div {
-border:var(--borderColor) 1px solid;
+  border: var(--borderColor) 1px solid;
 }
-
 .generate-invoice input {
   border: 0;
 }
-
 .remove {
   background: url(/images/remove-icon.svg) no-repeat;
   height: 30px;
@@ -69,20 +61,34 @@ border:var(--borderColor) 1px solid;
   display: grid;
   align-self: middle;
 }
-
 .invoice-border-th {
   background-color: var(--table-head-bg);
 }
-.table>:not(:first-child) {
+.table > :not(:first-child) {
   border-top: 2px;
 }
 .desc-txt {
   width: 100%;
 }
-
-
-@media (min-width:1025px) {
-   .generate-invoice .container {
+.tax-grid-container {
+ list-style-type: none;
+ margin: 0;
+ padding: 5px 0 0 0;
+}
+.tax-grid-container li {
+  display: inline-block;
+  padding-right: 10px;
+}
+.percentage-c {
+  padding-left: 20px;
+  border-left: 1px solid #ccc;
+}
+.tax {
+  min-width: 20px;
+  max-width: 50px;
+}
+@media (min-width: 1025px) {
+  .generate-invoice .container {
     padding: 15px;
-   }
+  }
 }

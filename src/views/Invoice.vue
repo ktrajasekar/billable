@@ -63,20 +63,18 @@
                         <td scope="row" width="20%">
                           <input type="text" v-model="item.quantity" class="focus-editor" />
                         </td>
-
                         <td scope="row" width="15%">
                           <input type="text" v-model="item.amount" class="focus-editor" />
                         </td>
                         <td width="5%" class="d-print-none">
-                          <div class="remove align-middle" type="button" @click="removeItem">
-                            
+                          <div class="remove align-middle" type="button" v-on:click="removeItem">
                           </div>
                         </td>
                       </tr>
                     </tbody>
                   </table>
                   <div class="btn d-print-none">
-                    <button type="button" class="newItem" @click="AddItem">
+                    <button type="button" class="newItem" v-on:click="AddItem">
                       Add new row
                     </button>
                   </div>
@@ -92,8 +90,13 @@
                 <div class="invoice-details float-end">
                   <div>Subtotal</div>
                   <div class="focus-editor" >{{subTotal.toFixed(2)}}</div>
-                  <div>VAT 5%</div>
-                  <div class="focus-editor" >{{percentage}}</div>
+                  <div> 
+                    <ul class="tax-grid-container" >
+                      <li class="focus-editor" contenteditable="">VAT</li>
+                      <li class="percentage-c" v-show="items.length > 0 && subTotal > 0"><input type="text" class="tax" v-model="tax" >%</li>
+                    </ul>
+                     </div>
+                  <div class="focus-editor">{{percentage}}</div>
                   <div>Total</div>
                   <div class="focus-editor" >{{Number(subTotal + percentage).toFixed(2) }}</div>
                 </div>
@@ -111,6 +114,7 @@ export default {
     return {
       subTotal: 0,
       percentage: 0,
+      tax:0,
       items: [
         {
           name: "",
@@ -133,12 +137,14 @@ export default {
     },
     subTotal : {
       handler(val) {
-        this.percentage = Number(((5 / 100) * val).toFixed(2))
+        this.percentage = Number(((this.tax / 100) * val).toFixed(2))
+      }
+    },
+    tax: {
+      handler(val) {
+        this.percentage = Number(((this.tax / 100) * val).toFixed(2))
       }
     }
-  },
-  computed: {
-
   },
   methods: {
     currentDate() {
@@ -159,11 +165,6 @@ export default {
     removeItem() {
       this.items.splice(this.items, 1);
     },
-    calculateSubTotal() {
-      this.items.reduce((item)=> {
-        console.log("-----", item)
-      })
-    }
   },
 };
 </script>
