@@ -54,7 +54,7 @@ body {
   border: 0;
 }
 .remove {
-  background: url(/images/remove-icon.svg) no-repeat;
+  background: url(../assets/remove-icon.svg) no-repeat;
   height: 30px;
   width: 40px;
   float: right;
@@ -86,6 +86,17 @@ body {
 .tax {
   min-width: 20px;
   max-width: 50px;
+}
+.add-new-row {
+  background: url(../assets/add-new.svg) no-repeat;
+  height: 30px;
+  width: 40px;
+  display: grid;
+  align-self: middle;
+  cursor: pointer;
+}
+.focus-editor p {
+  margin: 0;
 }
 @media (min-width: 1025px) {
   .generate-invoice .container {

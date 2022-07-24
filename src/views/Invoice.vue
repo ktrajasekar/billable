@@ -54,7 +54,7 @@
                           <td scope="col" width="5%" class="d-print-none"></td>
                       </tr>
                     </thead>
-                    <tbody v-if="items.length > 0">
+                    <tbody >
                       <tr v-for="(item, index) in items" :key="index">
                         <td scope="row" width="5%">{{ index + 1 }}</td>
                         <td colspan="3" scope="row" width="50%">
@@ -71,13 +71,9 @@
                           </div>
                         </td>
                       </tr>
+                      <tr class="d-print-none"><td colspan="7"> <span class="add-new-row" v-on:click="addItem"></span></td></tr>
                     </tbody>
                   </table>
-                  <div class="btn d-print-none">
-                    <button type="button" class="newItem" v-on:click="AddItem">
-                      Add new row
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -91,9 +87,9 @@
                   <div>Subtotal</div>
                   <div class="focus-editor" >{{subTotal.toFixed(2)}}</div>
                   <div> 
-                    <ul class="tax-grid-container" >
+                    <ul class="tax-grid-container"  v-show="items.length > 0 && subTotal > 0">
                       <li class="focus-editor" contenteditable="">VAT</li>
-                      <li class="percentage-c" v-show="items.length > 0 && subTotal > 0"><input type="text" class="tax" v-model="tax" >%</li>
+                      <li class="percentage-c"><input type="text" class="tax" v-model="tax" >%</li>
                     </ul>
                      </div>
                   <div class="focus-editor">{{percentage}}</div>
@@ -141,8 +137,8 @@ export default {
       }
     },
     tax: {
-      handler(val) {
-        this.percentage = Number(((this.tax / 100) * val).toFixed(2))
+      handler() {
+        this.percentage = Number(((this.tax / 100) * this.subTotal).toFixed(2))
       }
     }
   },
@@ -154,7 +150,7 @@ export default {
       const dateTime = date 
       return dateTime;
     },
-    AddItem() {
+    addItem() {
       this.items.push({
         name: "",
         quantity: 1,
