@@ -31,7 +31,7 @@
               </div>
               <div class="col-sm-4 ">
                 <div class="invoice-details float-end">
-                  <div>Invoice No#</div>
+                  <div>Invoice No</div>
                   <div class="focus-editor" contenteditable>1</div>
                   <div>Date</div>
                   <div class="focus-editor" contenteditable>{{currentDate()}}</div>
@@ -87,7 +87,7 @@
                   <div>Subtotal</div>
                   <div class="focus-editor" >{{subTotal.toFixed(2)}}</div>
                   <div> 
-                    <ul class="tax-grid-container"  v-show="items.length > 0 && subTotal > 0">
+                    <ul class="tax-grid-container" >
                       <li class="focus-editor" contenteditable="">VAT</li>
                       <li class="percentage-c"><input type="text" class="tax" v-model="tax" >%</li>
                     </ul>

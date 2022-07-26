@@ -47,8 +47,13 @@ body {
   min-width: 250px;
   grid-template-columns: auto auto;
 }
+
 .invoice-details div {
   border: var(--borderColor) 1px solid;
+  justify-content: left;
+  align-items: center;
+  display: flex;
+  padding: 5px;
 }
 .generate-invoice input {
   border: 0;
@@ -73,14 +78,14 @@ body {
 .tax-grid-container {
  list-style-type: none;
  margin: 0;
- padding: 5px 0 0 0;
+ padding: 0;
 }
 .tax-grid-container li {
   display: inline-block;
-  padding-right: 10px;
+  padding: 0 10px 0px 0px;
 }
 .percentage-c {
-  padding-left: 20px;
+  padding: 0 20px !important;
   border-left: 1px solid #ccc;
 }
 .tax {
