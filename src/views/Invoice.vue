@@ -57,7 +57,7 @@
                     <table class="table align-middle table-bordered">
                       <thead class="thead-light">
                         <tr class="invoice-border-th">
-                          <td scope="col" width="5%">#</td>
+                          <td scope="col" width="5%">S.No</td>
                           <td scope="col" colspan="3" width="50%">
                             Description
                           </td>
@@ -124,11 +124,11 @@
                       <ul class="tax-grid-container">
                         <li class="focus-editor" contenteditable>VAT</li>
                         <li class="percentage-c">
-                          <input type="text" class="tax" v-model="tax" />%
+                          <input type="text" class="tax focus-editor" v-model="tax" contenteditable/>%
                         </li>
                       </ul>
                     </div>
-                    <div class="focus-editor">{{ percentage }}</div>
+                    <div class="focus-editor" >{{ percentage }}</div>
                     <div>Total <span class="currency focus-editor" contenteditable>$</span></div>
                     <div class="focus-editor">
                       {{ Number(subTotal + percentage).toFixed(2) }}
@@ -144,7 +144,7 @@
     <footer class="container d-print-none">
       <section class="credits">
         <p>
-          Credits: <a href="https://rajasekart.tech/" target="_blank"
+          Credits: <a href="https://rajasekart.tech/" title="credits" target="_blank"
             >Rajasekar Thangavel</a
           >
         </p>
