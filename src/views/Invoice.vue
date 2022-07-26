@@ -122,14 +122,14 @@
                     <div class="focus-editor">{{ subTotal.toFixed(2) }}</div>
                     <div>
                       <ul class="tax-grid-container">
-                        <li class="focus-editor" contenteditable="">VAT</li>
+                        <li class="focus-editor" contenteditable>VAT</li>
                         <li class="percentage-c">
                           <input type="text" class="tax" v-model="tax" />%
                         </li>
                       </ul>
                     </div>
                     <div class="focus-editor">{{ percentage }}</div>
-                    <div>Total</div>
+                    <div>Total <span class="currency focus-editor" contenteditable>$</span></div>
                     <div class="focus-editor">
                       {{ Number(subTotal + percentage).toFixed(2) }}
                     </div>
