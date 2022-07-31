@@ -129,7 +129,7 @@
                       </ul>
                     </div>
                     <div class="focus-editor" >{{ percentage }}</div>
-                    <div>Total <span class="currency focus-editor" contenteditable>$</span></div>
+                    <div class="total-block"><span class="total">Total</span> <span class="currency focus-editor" contenteditable>$</span></div>
                     <div class="focus-editor">
                       {{ Number(subTotal + percentage).toFixed(2) }}
                     </div>

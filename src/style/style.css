@@ -145,6 +145,10 @@ header button:hover {
 .invoice-item-details {
   margin: 30px 0;
 }
-.currency {
-  display: inline-block;
+.total-block .total {
+flex-grow: 2;
+}
+.total-block .currency  {
+  flex-grow: 1;
+  text-align: right;
 }
