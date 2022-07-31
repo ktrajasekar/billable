@@ -124,12 +124,22 @@
                       <ul class="tax-grid-container">
                         <li class="focus-editor" contenteditable>VAT</li>
                         <li class="percentage-c">
-                          <input type="text" class="tax focus-editor" v-model="tax" contenteditable/>%
+                          <input
+                            type="text"
+                            class="tax focus-editor"
+                            v-model="tax"
+                            contenteditable
+                          />%
                         </li>
                       </ul>
                     </div>
-                    <div class="focus-editor" >{{ percentage }}</div>
-                    <div class="total-block"><span class="total">Total</span> <span class="currency focus-editor" contenteditable>$</span></div>
+                    <div class="focus-editor">{{ percentage }}</div>
+                    <div class="total-block">
+                      <span class="total">Total</span>
+                      <span class="currency focus-editor" contenteditable
+                        >$</span
+                      >
+                    </div>
                     <div class="focus-editor">
                       {{ Number(subTotal + percentage).toFixed(2) }}
                     </div>
@@ -144,7 +154,8 @@
     <footer class="container d-print-none">
       <section class="credits">
         <p>
-          Credits: <a href="https://rajasekart.tech/" title="credits" target="_blank"
+          Credits:
+          <a href="https://rajasekart.tech/" title="credits" target="_blank"
             >Rajasekar Thangavel</a
           >
         </p>
