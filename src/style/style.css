@@ -107,7 +107,7 @@ body {
 .focus-editor p {
   margin: 0;
 }
-header{
+header {
   margin: 10px 0;
   padding: 3px !important;
 }
@@ -115,7 +115,7 @@ footer {
   margin: 0;
   padding: 4px 0 !important;
 }
-footer  p{
+footer p {
   margin: 0;
   font-size: 0.8rem;
 }
@@ -146,9 +146,9 @@ header button:hover {
   margin: 30px 0;
 }
 .total-block .total {
-flex-grow: 2;
+  flex-grow: 2;
 }
-.total-block .currency  {
+.total-block .currency {
   flex-grow: 1;
   text-align: right;
 }
